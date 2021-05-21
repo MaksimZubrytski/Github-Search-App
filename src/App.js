@@ -1,18 +1,24 @@
+import { connect } from 'react-redux';
 import './App.css';
 import Header from './components/Header/Header';
 import Initial from './components/Initial/Initial';
 import UserPage from './components/UserPage/UserPage';
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <Header />
       <main>
-        {/*<Initial />*/}
-        <UserPage />
+        {props.isSearch ? <UserPage /> : <Initial />}
       </main>
     </div>
   );
 }
 
-export default App;
+let mapStateToProps = (state) => {
+  return {
+    isSearch: state.userPage.isSearch,
+  }
+}
+
+export default connect(mapStateToProps, null)(App);
