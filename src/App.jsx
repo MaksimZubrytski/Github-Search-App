@@ -1,3 +1,4 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import Header from './components/Header/Header';
@@ -5,20 +6,18 @@ import Initial from './components/Initial/Initial';
 import UserPage from './components/UserPage/UserPage';
 
 function App(props) {
+  const { isSearch } = { ...props };
+
   return (
-    <div className="App">
+    <div className='App'>
       <Header />
       <main>
-        {props.isSearch ? <UserPage /> : <Initial />}
+        {isSearch ? <UserPage /> : <Initial />}
       </main>
     </div>
   );
 }
 
-let mapStateToProps = (state) => {
-  return {
-    isSearch: state.userPage.isSearch,
-  }
-}
+const mapStateToProps = (state) => ({ isSearch: state.userPage.isSearch });
 
 export default connect(mapStateToProps, null)(App);
