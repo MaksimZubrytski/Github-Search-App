@@ -44,6 +44,13 @@ const UserPage = (props) => {
           </div>
         </div>
       </div>
+      <div className='repositories'>
+        <h2 className='title'>Repositories (222)</h2>
+        <div className='repository'>
+          <h3 className='title'>react-hot-loader</h3>
+          <p>Tweak React components in real time. (Deprecated: use Fast Refresh instead.</p>
+        </div>
+      </div>
     </div>
   );
 };

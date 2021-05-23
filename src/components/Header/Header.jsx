@@ -9,16 +9,16 @@ const Header = (props) => {
 
   const [searchValue, setSearchValue] = useState('');
 
-  const handleSubmit = (event) => {
+  async function handleSubmit(event) {
     event.preventDefault();
     setIsSearch(true);
     setIsFetching(true);
-    getUser(searchValue).then((data) => {
-      setIsFetching(false);
-      setUser(data);
-    });
+    const userData = await getUser(searchValue);
+
+    setIsFetching(false);
+    setUser(userData);
     setSearchValue("");
-  };
+  }
 
   return (
     <header className={styles.header}>
