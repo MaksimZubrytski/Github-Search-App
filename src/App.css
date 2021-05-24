@@ -2,6 +2,7 @@
   text-align: center;
 }
 
-.main {
+main {
+  padding: 28px 56px 28px 57px;
   background-color: #F9F9F9;
 }

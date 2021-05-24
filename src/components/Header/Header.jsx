@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { getRepositories } from '../../api/repositoriesApi/provider';
 import { getUser } from '../../api/userApi/provider';
+import { setRepositoriesAC } from '../../redux/repositories-reducer';
 import { setIsFetchingAC, setIsSearchAC, setUserAC } from '../../redux/user-reducer';
 import styles from './Header.module.css';
 
 const Header = (props) => {
-  const { setIsSearch, setIsFetching, setUser } = { ...props };
+  const { setIsSearch, setIsFetching, setUser, setRepositories } = { ...props };
 
   const [searchValue, setSearchValue] = useState('');
 
@@ -15,8 +17,12 @@ const Header = (props) => {
     setIsFetching(true);
     const userData = await getUser(searchValue);
 
-    setIsFetching(false);
     setUser(userData);
+
+    const repositoriesData = await getRepositories(searchValue);
+
+    setIsFetching(false);
+    setRepositories(repositoriesData);
     setSearchValue("");
   }
 
@@ -38,4 +44,9 @@ const Header = (props) => {
 };
 
 export default connect(null,
-  { setUser: setUserAC, setIsSearch: setIsSearchAC, setIsFetching: setIsFetchingAC })(Header);
+  {
+    setUser: setUserAC,
+    setIsSearch: setIsSearchAC,
+    setIsFetching: setIsFetchingAC,
+    setRepositories: setRepositoriesAC,
+  })(Header);

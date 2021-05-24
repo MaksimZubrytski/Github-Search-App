@@ -1,6 +1,7 @@
 .wrapper {
-    padding: 28px 56px 28px 57px;
     display: flex;
+    max-width: 1262px;
+    margin: 0 auto;
 }
 
 .user {

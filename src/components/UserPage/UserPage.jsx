@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Preloader from '../common/Preloader/Preloader';
 import UserNotFound from '../UserNotFound/UserNotFound';
+import Repositories from './Repositories/Repositories';
 import styles from './UserPage.module.css';
 
 const UserPage = (props) => {
@@ -44,13 +45,7 @@ const UserPage = (props) => {
           </div>
         </div>
       </div>
-      <div className='repositories'>
-        <h2 className='title'>Repositories (222)</h2>
-        <div className='repository'>
-          <h3 className='title'>react-hot-loader</h3>
-          <p>Tweak React components in real time. (Deprecated: use Fast Refresh instead.</p>
-        </div>
-      </div>
+      <Repositories />
     </div>
   );
 };
