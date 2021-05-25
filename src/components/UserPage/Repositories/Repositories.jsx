@@ -4,6 +4,7 @@ import ReactPaginate from 'react-paginate';
 import Repository from './Repostory/Repository';
 import styles from './Repositories.module.css';
 import { getRepositoriesThunkCreator } from '../../../redux/search-thunk';
+import ShownRepositoriesInfo from './ShownRepositoriesInfo/ShownRepositoriesInfo';
 
 const Repositories = (props) => {
   const {
@@ -11,14 +12,11 @@ const Repositories = (props) => {
     repositoriesCount,
     pageSize,
     login,
-    currentPage,
     getRepositories,
   } = { ...props };
-  const pagesCount = Math.ceil(repositoriesCount / pageSize);
 
   const handlePageClick = (data) => {
     const { selected } = { ...data };
-
     const selectedPage = selected + 1;
 
     getRepositories(login, selectedPage, pageSize);
@@ -31,12 +29,8 @@ const Repositories = (props) => {
       key={repository.id}
     />
   ));
-  const from = currentPage * 4 - 3;
-  let to = currentPage * 4;
 
-  if (currentPage === pagesCount) {
-    to = repositoriesCount;
-  }
+  const pagesCount = Math.ceil(repositoriesCount / pageSize);
 
   if (repositories.length === 0) {
     return (
@@ -51,9 +45,7 @@ const Repositories = (props) => {
     <div className={styles.repositories}>
       <h2 className={styles.title}>Repositories ({repositoriesCount})</h2>
       {repositoriesComponents}
-      <div>
-        <span>{from}-{to} of {repositoriesCount} items</span>
-      </div>
+      <ShownRepositoriesInfo />
       <ReactPaginate
         marginPagesDisplayed={1}
         previousLabel=''
