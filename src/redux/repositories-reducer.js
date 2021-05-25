@@ -1,6 +1,10 @@
 const SET_REPOSITORIES = 'SET_REPOSITORIES';
 
-const initialState = { repositories: [] };
+const initialState = {
+  repositories: [],
+  pageSize: 4,
+  currentPage: 1,
+};
 
 const repositoriesReducer = (state = initialState, action) => {
   switch (action.type) {

@@ -4,6 +4,6 @@ export const userApiBuildUrl = (login) => (
   `${USER_URL}/${login}`
 );
 
-export const repositoriesApiBuildUrl = (login) => (
-  `${USER_URL}/${login}/repos?page=1&per_page=4`
+export const repositoriesApiBuildUrl = (login, currentPage, pageSize) => (
+  `${USER_URL}/${login}/repos?page=${currentPage}&per_page=${pageSize}`
 );

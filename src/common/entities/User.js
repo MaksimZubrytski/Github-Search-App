@@ -1,11 +1,12 @@
 export class User {
-  constructor({ id, imageUrl, name, login, followers, following }) {
+  constructor({ id, imageUrl, name, login, followers, following, repositoriesCount }) {
     this.id = id;
     this.imageUrl = imageUrl;
     this.name = name;
     this.login = login;
     this.followers = followers;
     this.following = following;
+    this.repositoriesCount = repositoriesCount;
   }
 
   getFollowers() {

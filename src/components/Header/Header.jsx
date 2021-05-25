@@ -7,7 +7,7 @@ import { setIsFetchingAC, setIsSearchAC, setUserAC } from '../../redux/user-redu
 import styles from './Header.module.css';
 
 const Header = (props) => {
-  const { setIsSearch, setIsFetching, setUser, setRepositories } = { ...props };
+  const { setIsSearch, setIsFetching, setUser, setRepositories, currentPage, pageSize } = { ...props };
 
   const [searchValue, setSearchValue] = useState('');
 
@@ -19,7 +19,7 @@ const Header = (props) => {
 
     setUser(userData);
 
-    const repositoriesData = await getRepositories(searchValue);
+    const repositoriesData = await getRepositories(searchValue, currentPage, pageSize);
 
     setIsFetching(false);
     setRepositories(repositoriesData);
@@ -43,7 +43,12 @@ const Header = (props) => {
   );
 };
 
-export default connect(null,
+const mapStateToProps = (state) => ({
+  pageSize: state.repositoriesData.pageSize,
+  currentPage: state.repositoriesData.currentPage,
+});
+
+export default connect(mapStateToProps,
   {
     setUser: setUserAC,
     setIsSearch: setIsSearchAC,

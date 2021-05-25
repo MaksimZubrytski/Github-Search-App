@@ -8,5 +8,6 @@ export const converterUser = (data) => (
     login: data.login,
     followers: data.followers,
     following: data.following,
+    repositoriesCount: data.public_repos,
   })
 );

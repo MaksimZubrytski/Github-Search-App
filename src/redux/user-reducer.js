@@ -10,6 +10,7 @@ const initialState = {
     login: null,
     followers: null,
     following: null,
+    repositoriesCount: null,
   },
   isSearch: false,
   isFetching: true,
