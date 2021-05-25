@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import ReactPaginate from 'react-paginate';
 import Repository from './Repostory/Repository';
 import styles from './Repositories.module.css';
-import { getRepositories } from '../../../api/repositoriesApi/provider';
-import { setCurrentPageAC, setRepositoriesAC } from '../../../redux/repositories-reducer';
+import { getRepositoriesThunkCreator } from '../../../redux/search-thunk';
 
 const Repositories = (props) => {
   const {
@@ -12,22 +11,18 @@ const Repositories = (props) => {
     repositoriesCount,
     pageSize,
     login,
-    setRepositories,
-    setCurrentPage,
     currentPage,
+    getRepositories,
   } = { ...props };
   const pagesCount = Math.ceil(repositoriesCount / pageSize);
 
-  async function handlePageClick(data) {
+  const handlePageClick = (data) => {
     const { selected } = { ...data };
 
     const selectedPage = selected + 1;
 
-    const repositoriesData = await getRepositories(login, selectedPage, pageSize);
-
-    setCurrentPage(selectedPage);
-    setRepositories(repositoriesData);
-  }
+    getRepositories(login, selectedPage, pageSize);
+  };
 
   const repositoriesComponents = repositories.map((repository) => (
     <Repository
@@ -85,4 +80,4 @@ const mapStateToProps = (state) => ({
   currentPage: state.repositoriesData.currentPage,
 });
 
-export default connect(mapStateToProps, { setRepositories: setRepositoriesAC, setCurrentPage: setCurrentPageAC })(Repositories);
+export default connect(mapStateToProps, { getRepositories: getRepositoriesThunkCreator })(Repositories);

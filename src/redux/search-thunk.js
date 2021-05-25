@@ -21,3 +21,10 @@ export const getUserThunkCreator = (searchValue, defaultPage, pageSize) => async
     dispatch(setIsFetchingAC(false));
   }
 };
+
+export const getRepositoriesThunkCreator = (login, selectedPage, pageSize) => async function (dispatch) {
+  const repositoriesData = await getRepositories(login, selectedPage, pageSize);
+
+  dispatch(setCurrentPageAC(selectedPage));
+  dispatch(setRepositoriesAC(repositoriesData));
+};

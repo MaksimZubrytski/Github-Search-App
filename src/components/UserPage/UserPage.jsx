@@ -17,8 +17,6 @@ const UserPage = (props) => {
     url,
   } = { ...user };
 
-  console.log(url);
-
   if (isFetching) {
     return (
       <Preloader />
