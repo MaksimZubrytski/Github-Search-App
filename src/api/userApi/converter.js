@@ -9,5 +9,6 @@ export const converterUser = (data) => (
     followers: data.followers,
     following: data.following,
     repositoriesCount: data.public_repos,
+    url: data.html_url,
   })
 );

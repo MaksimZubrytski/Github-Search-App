@@ -11,6 +11,7 @@ const initialState = {
     followers: null,
     following: null,
     repositoriesCount: null,
+    url: null,
   },
   isSearch: false,
   isFetching: true,

@@ -1,5 +1,5 @@
 export class User {
-  constructor({ id, imageUrl, name, login, followers, following, repositoriesCount }) {
+  constructor({ id, imageUrl, name, login, followers, following, repositoriesCount, url }) {
     this.id = id;
     this.imageUrl = imageUrl;
     this.name = name;
@@ -7,6 +7,7 @@ export class User {
     this.followers = followers;
     this.following = following;
     this.repositoriesCount = repositoriesCount;
+    this.url = url;
   }
 
   getFollowers() {

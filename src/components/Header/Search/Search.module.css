@@ -1,0 +1,26 @@
+.search {
+  position: relative;
+}
+
+.search input {
+  width: 500px;
+  height: 40px;
+  border-radius: 6px;
+  border: none;
+  padding: 8px 0px 8px 44px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.ico_search {
+  position: absolute;
+  left: 19px;
+  top: 14px;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-image: url(../../../assets/img/search.svg);
+}

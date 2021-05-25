@@ -14,7 +14,10 @@ const UserPage = (props) => {
     followers,
     imageUrl,
     following,
+    url,
   } = { ...user };
+
+  console.log(url);
 
   if (isFetching) {
     return (
@@ -33,7 +36,7 @@ const UserPage = (props) => {
       <div className={styles.user}>
         <img src={imageUrl} className={styles.image} alt='user' />
         <h1 className={styles.title}>{name}</h1>
-        <span className={styles.login}>{login}</span>
+        <a className={styles.login} href={url} target='_blank' rel='noreferrer'>{login}</a>
         <div className={styles.follow}>
           <div className={styles.follow_container}>
             <span className={styles.ico_followers} />
