@@ -7,7 +7,13 @@ import { getRepositories } from '../../../api/repositoriesApi/provider';
 import { setRepositoriesAC } from '../../../redux/repositories-reducer';
 
 const Repositories = (props) => {
-  const { repositories, repositoriesCount, pageSize, login, setRepositories } = { ...props };
+  const {
+    repositories,
+    repositoriesCount,
+    pageSize,
+    login,
+    setRepositories,
+  } = { ...props };
   const pagesCount = Math.ceil(repositoriesCount / pageSize);
 
   async function handlePageClick(data) {

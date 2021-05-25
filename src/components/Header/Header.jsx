@@ -12,18 +12,23 @@ const Header = (props) => {
   const [searchValue, setSearchValue] = useState('');
 
   async function handleSubmit(event) {
-    event.preventDefault();
-    setIsSearch(true);
-    setIsFetching(true);
-    const userData = await getUser(searchValue);
+    try {
+      event.preventDefault();
+      setIsSearch(true);
+      setIsFetching(true);
+      const userData = await getUser(searchValue);
 
-    setUser(userData);
+      setUser(userData);
 
-    const repositoriesData = await getRepositories(searchValue, currentPage, pageSize);
+      const repositoriesData = await getRepositories(searchValue, currentPage, pageSize);
 
-    setIsFetching(false);
-    setRepositories(repositoriesData);
-    setSearchValue("");
+      setIsFetching(false);
+      setRepositories(repositoriesData);
+      setSearchValue("");
+    } catch (e) {
+      setRepositories([]);
+      setIsFetching(false);
+    }
   }
 
   return (
