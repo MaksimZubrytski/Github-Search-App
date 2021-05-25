@@ -1,14 +1,14 @@
+import { applyMiddleware, combineReducers, createStore } from "redux";
+import thunk from "redux-thunk";
 import repositoriesReducer from "./repositories-reducer";
-
-const { createStore, combineReducers } = require("redux");
-const { default: userReducer } = require("./user-reducer");
+import userReducer from "./user-reducer";
 
 const reducers = combineReducers({
   userPage: userReducer,
   repositoriesData: repositoriesReducer,
 });
 
-const store = createStore(reducers);
+const store = createStore(reducers, applyMiddleware(thunk));
 
 export default store;
 
