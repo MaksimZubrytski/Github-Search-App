@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from './Initial.scss';
+import './Initial.scss';
 
 const Initial = () => (
-  <div className={styles.wrapper}>
-    <span className={styles.ico} />
-    <span className={styles.text}>Start with searching
+  <div className='initial'>
+    <span className='ico ico_search-big' />
+    <span className='initial__text'>Start with searching
       a GitHub user
     </span>
   </div>

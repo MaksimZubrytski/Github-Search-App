@@ -1,4 +1,4 @@
-.wrapper {
+.initial {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7,14 +7,13 @@
     background-color: #F9F9F9;
 }
 
-.ico {
-    display: inline-block;
+.ico_search-big {
     width: 64px;
     height: 64px;
     background: url(../../assets/img/search-big.svg) no-repeat center center;
 }
 
-.text {
+.initial__text {
     margin-top: 47px;
     max-width: 210px;
     font-style: normal;
