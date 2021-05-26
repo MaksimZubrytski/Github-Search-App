@@ -1,0 +1,16 @@
+@import "../../scss/common/mixins.scss";
+@import "../../scss/common/constant.scss";
+
+.header {
+  background-color: $color-primary;
+}
+
+.header__wrapper {
+  display: flex;
+  max-width: 1325px;
+  padding: 16px 20px 16px 41px;
+
+  @include media-tablet {
+    padding: 16px 20px 16px 20px;
+  }
+}

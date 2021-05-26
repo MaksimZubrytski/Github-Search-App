@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './Logo.module.css';
+import './Logo.scss';
 
 const Logo = () => (
-  <div className={styles.logo}>
-    <span className={styles.ico} />
+  <div className='logo header__logo'>
+    <span className='ico ico_logo' />
   </div>
 );
 

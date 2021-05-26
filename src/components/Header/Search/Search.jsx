@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { getUserThunkCreator } from '../../../redux/search-thunk';
-import styles from './Search.module.css';
+import './Search.scss';
 
 const Search = (props) => {
   const { defaultPage, pageSize, getUser } = { ...props };
@@ -15,9 +15,9 @@ const Search = (props) => {
   };
 
   return (
-    <div className={styles.search}>
+    <div className='search'>
       <form onSubmit={handleSubmit}>
-        <span className={styles.ico_search} />
+        <span className='ico ico_search' />
         <input onChange={(e) => setSearchValue(e.target.value)} type='text' value={searchValue} />
       </form>
     </div>

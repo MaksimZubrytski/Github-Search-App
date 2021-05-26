@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import './App.css';
+import './App.scss';
 import Header from './components/Header/Header';
 import Initial from './components/Initial/Initial';
 import UserPage from './components/UserPage/UserPage';

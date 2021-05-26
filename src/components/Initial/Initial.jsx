@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Initial.module.css';
+import styles from './Initial.scss';
 
 const Initial = () => (
   <div className={styles.wrapper}>

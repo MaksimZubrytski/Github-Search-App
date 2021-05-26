@@ -1,11 +1,11 @@
 import React from 'react';
-import styles from './Header.module.css';
+import './Header.scss';
 import Logo from './Logo/Logo';
 import Search from './Search/Search';
 
 const Header = () => (
-  <header className={styles.header}>
-    <div className={styles.wrapper}>
+  <header className='header'>
+    <div className='wrapper header__wrapper'>
       <Logo />
       <Search />
     </div>
