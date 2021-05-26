@@ -11,7 +11,7 @@ function App(props) {
   return (
     <div className='App'>
       <Header />
-      <main>
+      <main className='main'>
         {isSearch ? <UserPage /> : <Initial />}
       </main>
     </div>
