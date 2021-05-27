@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Repository.module.css';
+import './Repository.scss';
 
 const Repository = (props) => {
   const {
@@ -8,9 +8,9 @@ const Repository = (props) => {
   } = { ...props };
 
   return (
-    <div className={styles.repository}>
-      <h3 className={styles.title}>{name}</h3>
-      <p className={styles.text}>{description}</p>
+    <div className='repository repositories__item'>
+      <h3 className='repository__title'>{name}</h3>
+      <p className='repository__text'>{description}</p>
     </div>
   );
 };
