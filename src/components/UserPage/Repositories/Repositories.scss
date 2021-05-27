@@ -6,18 +6,36 @@
   flex-direction: column;
   flex-basis: 962px;
   text-align: left;
+  @include media-tablet {
+    align-items: center;
+  }
+  overflow: auto;
 }
 
 .repositories__title {
   margin: 28px 0 0 87px;
   padding: 0;
   @include font($size: 3.2rem, $height: 4.2rem, $weight: 600);
+  @include media-laptop {
+    margin: 28px 0 0 47px;
+  }
+  @include media-tablet {
+    margin: 45px 0 0 0px;
+  }
+  @include media-mobile {
+    @include font($size: 2.6rem, $height: 3.6rem, $weight: 600);
+  }
 }
 
 .repositories__container {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  @include media-tablet {
+    flex-direction: column;
+    justify-content: center;
+  }
+  margin-top: 24px;
 }
 
 .paginate__container {
@@ -30,6 +48,12 @@
 .paginate__item {
   margin-left: 16px;
   color: $color-text;
+  @include media-laptop {
+    margin-left: 12px;
+  }
+  @include media-mobile {
+    margin-left: 8px;
+  }
 }
 
 .paginate__link {
@@ -43,6 +67,12 @@
   margin-left: 16px;
   @include font($size: 1.6rem, $height: 2.2rem);
   color: $color-text;
+  @include media-laptop {
+    margin-left: 12px;
+  }
+  @include media-mobile {
+    margin-left: 8px;
+  }
 }
 
 .paginate__previous-link {
@@ -60,6 +90,12 @@
   width: 18px;
   height: 18px;
   background: url("./../../../assets/img/stroke-right.svg") no-repeat center center;
+  @include media-laptop {
+    margin-left: 12px;
+  }
+  @include media-mobile {
+    margin-left: 8px;
+  }
 }
 
 .ico_empty {

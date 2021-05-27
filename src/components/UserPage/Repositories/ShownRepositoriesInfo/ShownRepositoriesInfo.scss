@@ -5,4 +5,7 @@
   @include font($size: 1.4rem, $height: 2.1rem);
   color: $color-text;
   margin-right: 16px;
+  @include media-tablet {
+    margin: 0;
+  }
 }
