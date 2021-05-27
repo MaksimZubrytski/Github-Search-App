@@ -4,6 +4,7 @@
 .repositories {
   display: flex;
   flex-direction: column;
+  flex-basis: 962px;
   text-align: left;
 }
 
@@ -71,4 +72,12 @@
   background-color: $color-primary;
   border-radius: 3px;
   color: $color-light;
+}
+
+.previous.disabled > a {
+  background-image: url(../../../assets/img/stroke-left-disabled.svg);
+}
+
+.next.disabled > a {
+  background-image: url(../../../assets/img/stroke-right-disabled.svg);
 }

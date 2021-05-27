@@ -1,11 +1,3 @@
 @import "./scss/common/base.scss";
 @import "./scss/common/ico.scss";
 @import "./scss/common/constant.scss";
-
-.previous.disabled > a {
-  background-image: url(./assets/img/stroke-left-disabled.svg);
-}
-
-.next.disabled > a {
-  background-image: url(./assets/img/stroke-right-disabled.svg);
-}

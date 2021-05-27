@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import './ShownRepositoriesInfo.scss';
 
 const ShownRepositoriesInfo = (props) => {
   const {
@@ -19,8 +20,8 @@ const ShownRepositoriesInfo = (props) => {
   }
 
   return (
-    <div>
-      <span>{from}-{to} of {repositoriesCount} items</span>
+    <div className='repositories-info'>
+      <span className='repositories-info__text'>{from}-{to} of {repositoriesCount} items</span>
     </div>
   );
 };

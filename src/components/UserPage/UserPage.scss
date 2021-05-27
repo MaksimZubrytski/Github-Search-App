@@ -3,8 +3,7 @@
 
 .user-page__wrapper {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   max-width: 1262px;
   margin: 0 auto;
 }
@@ -43,7 +42,6 @@
   align-items: center;
   margin: 25px 0 0 0;
 }
-
 
 .ico_followers {
   width: 24px;
