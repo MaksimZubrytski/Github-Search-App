@@ -3,19 +3,11 @@ import { connect } from 'react-redux';
 import Preloader from '../common/Preloader/Preloader';
 import UserNotFound from '../UserNotFound/UserNotFound';
 import Repositories from './Repositories/Repositories';
+import UserProfile from './UserProfile/UserProfile';
 import './UserPage.scss';
 
 const UserPage = (props) => {
-  const { isFetching, user } = { ...props };
-  const {
-    id,
-    name,
-    login,
-    followers,
-    imageUrl,
-    following,
-    url,
-  } = { ...user };
+  const { isFetching, userId } = { ...props };
 
   if (isFetching) {
     return (
@@ -23,7 +15,7 @@ const UserPage = (props) => {
     );
   }
 
-  if (!id) {
+  if (!userId) {
     return (
       <UserNotFound />
     );
@@ -31,28 +23,14 @@ const UserPage = (props) => {
 
   return (
     <div className='user-page__wrapper'>
-      <div className='user'>
-        <img src={imageUrl} className='user__image' alt='user' />
-        <h1 className='user__title'>{name}</h1>
-        <a className='user__link' href={url} target='_blank' rel='noreferrer'>{login}</a>
-        <div className='follow'>
-          <div className='follow__container'>
-            <span className='ico ico_followers' />
-            <span className='follow__text'>{followers} followers</span>
-          </div>
-          <div className='follow__container'>
-            <span className='ico ico_following' />
-            <span className='follow__text'>{following} following</span>
-          </div>
-        </div>
-      </div>
+      <UserProfile />
       <Repositories />
     </div>
   );
 };
 
 const mapStateToProps = (state) => ({
-  user: state.userPage.user,
+  userId: state.userPage.user.id,
   isFetching: state.userPage.isFetching,
 });
 

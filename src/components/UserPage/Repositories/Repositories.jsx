@@ -5,6 +5,7 @@ import Repository from './Repostory/Repository';
 import './Repositories.scss';
 import { getRepositoriesThunkCreator } from '../../../redux/search-thunk';
 import ShownRepositoriesInfo from './ShownRepositoriesInfo/ShownRepositoriesInfo';
+import Preloader from '../../common/Preloader/Preloader';
 
 const Repositories = (props) => {
   const {
@@ -13,7 +14,17 @@ const Repositories = (props) => {
     pageSize,
     login,
     getRepositories,
+    isFetching,
   } = { ...props };
+
+  if (repositories.length === 0) {
+    return (
+      <div className='repositories'>
+        <span className='ico ico_empty' />
+        <span>Repository list is empty</span>
+      </div>
+    );
+  }
 
   const handlePageClick = (data) => {
     const { selected } = { ...data };
@@ -32,19 +43,10 @@ const Repositories = (props) => {
 
   const pagesCount = Math.ceil(repositoriesCount / pageSize);
 
-  if (repositories.length === 0) {
-    return (
-      <div className='repositories'>
-        <span className='ico ico_empty' />
-        <span>Repository list is empty</span>
-      </div>
-    );
-  }
-
   return (
     <div className='repositories'>
       <h2 className='repositories__title'>Repositories ({repositoriesCount})</h2>
-      {repositoriesComponents}
+      {isFetching ? <Preloader /> : repositoriesComponents}
       <div className='repositories__container'>
         <ShownRepositoriesInfo />
         <ReactPaginate
@@ -73,6 +75,7 @@ const mapStateToProps = (state) => ({
   login: state.userPage.user.login,
   pageSize: state.repositoriesData.pageSize,
   currentPage: state.repositoriesData.currentPage,
+  isFetching: state.repositoriesData.isFetching,
 });
 
 export default connect(mapStateToProps, { getRepositories: getRepositoriesThunkCreator })(Repositories);

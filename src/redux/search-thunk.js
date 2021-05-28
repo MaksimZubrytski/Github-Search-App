@@ -1,6 +1,6 @@
 import { getRepositories } from "../api/repositoriesApi/provider";
 import { getUser } from "../api/userApi/provider";
-import { setCurrentPageAC, setRepositoriesAC } from "./repositories-reducer";
+import { setCurrentPageAC, setIsFetchingRepositoriesAC, setRepositoriesAC } from "./repositories-reducer";
 import { setIsFetchingAC, setIsSearchAC, setUserAC } from "./user-reducer";
 
 export const getUserThunkCreator = (searchValue, defaultPage, pageSize) => async function (dispatch) {
@@ -23,8 +23,10 @@ export const getUserThunkCreator = (searchValue, defaultPage, pageSize) => async
 };
 
 export const getRepositoriesThunkCreator = (login, selectedPage, pageSize) => async function (dispatch) {
+  dispatch(setIsFetchingRepositoriesAC(true));
   const repositoriesData = await getRepositories(login, selectedPage, pageSize);
 
+  dispatch(setIsFetchingRepositoriesAC(false));
   dispatch(setCurrentPageAC(selectedPage));
   dispatch(setRepositoriesAC(repositoriesData));
 };
