@@ -1,4 +1,4 @@
-import { USER_URL } from "../constants/userApi";
+import { USER_URL } from "../constants/githubApi";
 
 export const userApiBuildUrl = (login) => (
   `${USER_URL}/${login}`
