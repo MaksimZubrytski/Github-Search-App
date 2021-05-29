@@ -9,7 +9,9 @@ const ShownRepositoriesInfo = (props) => {
     currentPage,
   } = { ...props };
 
-  const from = currentPage * pageSize - 3;
+  const DIFFERENCE = 3;
+
+  const from = currentPage * pageSize - DIFFERENCE;
 
   let to = currentPage * pageSize;
 
