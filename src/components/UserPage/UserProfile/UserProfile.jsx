@@ -16,7 +16,7 @@ const UserProfile = (props) => {
   return (
     <div className='user'>
       <img src={imageUrl} className='user__image' alt='user' />
-      <h1 className='user__title'>{name}</h1>
+      <h2 className='user__title'>{name}</h2>
       <a className='user__link' href={url} target='_blank' rel='noreferrer'>{login}</a>
       <Follow />
     </div>

@@ -7,3 +7,12 @@
   height: 40px;
   background-image: url(../../../assets/img/logo.svg);
 }
+
+.visuallyhidden {
+  position: absolute;
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  border: 0;
+}
