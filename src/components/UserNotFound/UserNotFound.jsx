@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from './UserNotFound.module.css';
+import './UserNotFound.scss';
 
 const UserNotFound = () => (
-  <div className={styles.wrapper}>
-    <span className={styles.ico} />
-    <span className={styles.text}>User not found</span>
+  <div className='user-not-found'>
+    <span className='ico ico_not-found' />
+    <span className='user-not-found__text'>User not found</span>
   </div>
 );
 
