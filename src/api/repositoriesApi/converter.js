@@ -6,6 +6,7 @@ export const converterRepositories = (data) => (
       id: repository.id,
       name: repository.name,
       description: repository.description,
+      url: repository.html_url,
     })
   ))
 );

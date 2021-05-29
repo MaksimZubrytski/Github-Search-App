@@ -6,18 +6,18 @@ import Initial from './components/Initial/Initial';
 import UserPage from './components/UserPage/UserPage';
 
 function App(props) {
-  const { isSearch } = { ...props };
+  const { isSearchQuery } = { ...props };
 
   return (
     <div className='App'>
       <Header />
       <main className='main'>
-        {isSearch ? <UserPage /> : <Initial />}
+        {isSearchQuery ? <UserPage /> : <Initial />}
       </main>
     </div>
   );
 }
 
-const mapStateToProps = (state) => ({ isSearch: state.userPage.isSearch });
+const mapStateToProps = (state) => ({ isSearchQuery: state.userPage.isSearchQuery });
 
 export default connect(mapStateToProps, null)(App);

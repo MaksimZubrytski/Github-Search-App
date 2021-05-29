@@ -1,5 +1,5 @@
 const SET_USER = 'SET_USER';
-const SET_SEARCH = 'SET_SEARCH';
+const SET_SEARCH_QUERY = 'SET_SEARCH_QUERY';
 const SET_IS_FETCHING = 'SET_IS_FETCHING';
 
 const initialState = {
@@ -13,7 +13,7 @@ const initialState = {
     repositoriesCount: null,
     url: null,
   },
-  isSearch: false,
+  isSearchQuery: false,
   isFetching: true,
 };
 
@@ -22,8 +22,8 @@ const userReducer = (state = initialState, action) => {
     case SET_USER: {
       return { ...state, user: action.user };
     }
-    case SET_SEARCH: {
-      return { ...state, isSearch: action.isSearch };
+    case SET_SEARCH_QUERY: {
+      return { ...state, isSearchQuery: action.isSearchQuery };
     }
     case SET_IS_FETCHING: {
       return { ...state, isFetching: action.isFetching };
@@ -35,7 +35,7 @@ const userReducer = (state = initialState, action) => {
 
 export const setUserAC = (user) => ({ type: SET_USER, user });
 
-export const setIsSearchAC = (isSearch) => ({ type: SET_SEARCH, isSearch });
+export const setIsSearchQueryAC = (isSearchQuery) => ({ type: SET_SEARCH_QUERY, isSearchQuery });
 
 export const setIsFetchingAC = (isFetching) => ({ type: SET_IS_FETCHING, isFetching });
 

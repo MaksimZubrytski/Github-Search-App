@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import ReactPaginate from 'react-paginate';
 import Repository from './Repostory/Repository';
 import './Repositories.scss';
-import { getRepositoriesThunkCreator } from '../../../redux/search-thunk';
+import { getRepositoriesThunkCreator } from '../../../redux/thunks';
 import ShownRepositoriesInfo from './ShownRepositoriesInfo/ShownRepositoriesInfo';
 import Preloader from '../../common/Preloader/Preloader';
+import EmptyRepositories from './EmptyRepositories/EmptyRepositories';
 
 const Repositories = (props) => {
   const {
@@ -19,10 +20,7 @@ const Repositories = (props) => {
 
   if (repositories.length === 0) {
     return (
-      <div className='repositories'>
-        <span className='ico ico_empty' />
-        <span>Repository list is empty</span>
-      </div>
+      <EmptyRepositories />
     );
   }
 
@@ -38,6 +36,7 @@ const Repositories = (props) => {
       name={repository.name}
       description={repository.description}
       key={repository.id}
+      url={repository.url}
     />
   ));
 

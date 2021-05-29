@@ -1,0 +1,31 @@
+@import "../../../../scss/common/constant.scss";
+@import "../../../../scss/common/mixins.scss";
+
+.follow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 25px 0 0 0;
+}
+
+.ico_followers {
+  width: 24px;
+  height: 24px;
+  background: url(../../../../assets/img/followers.svg);
+}
+
+.ico_following {
+  width: 24px;
+  height: 24px;
+  background: url(../../../../assets/img/following.svg);
+}
+
+.follow__text {
+  margin-left: 8px;
+  @include font($size: 1.6rem, $height: 2.4rem);
+}
+
+.follow__container {
+  display: flex;
+  align-items: center;
+}

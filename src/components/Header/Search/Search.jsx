@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { getUserThunkCreator } from '../../../redux/search-thunk';
+import { getUserThunkCreator } from '../../../redux/thunks';
 import './Search.scss';
 
 const Search = (props) => {
@@ -10,6 +10,11 @@ const Search = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    if (searchValue.trim() === '') {
+      return;
+    }
+
     getUser(searchValue, defaultPage, pageSize);
     setSearchValue("");
   };

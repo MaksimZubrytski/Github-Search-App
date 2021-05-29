@@ -5,11 +5,12 @@ const Repository = (props) => {
   const {
     name,
     description,
+    url,
   } = { ...props };
 
   return (
     <div className='repository repositories__item'>
-      <h3 className='repository__title'>{name}</h3>
+      <a className='repository__title' href={url} target='_blank' rel='noreferrer'>{name}</a>
       <p className='repository__text'>{description}</p>
     </div>
   );

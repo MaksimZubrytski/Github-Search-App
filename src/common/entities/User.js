@@ -1,3 +1,22 @@
+function decimalAdjust(type, value, exp) {
+  if (typeof exp === 'undefined' || +exp === 0) {
+    return Math[type](value);
+  }
+
+  let result = value;
+  let exponent = exp;
+
+  result = +result;
+  exponent = +exponent;
+
+  result = result.toString().split('e');
+  result = Math[type](+(`${result[0]}e${result[1] ? (+result[1] - exponent) : -exponent}`));
+
+  result = result.toString().split('e');
+
+  return +(`${result[0]}e${result[1] ? (+result[1] + exponent) : exponent}`);
+}
+
 export class User {
   constructor({ id, imageUrl, name, login, followers, following, repositoriesCount, url }) {
     this.id = id;
@@ -11,10 +30,18 @@ export class User {
   }
 
   getFollowers() {
-    return Math.round((this.followers * (9 / 5)) + 32);
+    if (this.followers >= 1000) {
+      return `${decimalAdjust('round', this.followers / 1000, -1)}${'k'}`;
+    }
+
+    return this.followers;
   }
 
   getFollowing() {
-    return Math.round((this.following * (9 / 5)) + 32);
+    if (this.following >= 1000) {
+      return `${decimalAdjust('round', this.following / 1000, -1)}${'k'}`;
+    }
+
+    return this.following;
   }
 }
