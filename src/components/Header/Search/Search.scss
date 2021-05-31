@@ -1,4 +1,5 @@
 @import "../../../scss/common/mixins.scss";
+@import "../../../scss/common/constant.scss";
 
 .search {
   position: relative;
@@ -14,6 +15,11 @@
   padding: 8px 0px 8px 44px;
 
   @include font($size: 1.4rem, $height: 1.7rem);
+}
+
+.search input::placeholder {
+  @include font($size: 1.4rem, $height: 1.7rem);
+  color: $color-text;
 }
 
 .ico_search {

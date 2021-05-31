@@ -23,7 +23,7 @@ const Search = (props) => {
     <div className='search'>
       <form onSubmit={handleSubmit}>
         <span className='ico ico_search' />
-        <input onChange={(e) => setSearchValue(e.target.value)} type='text' value={searchValue} />
+        <input onChange={(e) => setSearchValue(e.target.value)} type='text' value={searchValue} placeholder='Enter GitHub username' />
       </form>
     </div>
   );
